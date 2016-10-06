@@ -1,0 +1,84 @@
+{##
+ # OKPAY payment system configuration page
+ #}
+
+<p>{{ t('To complete OKPAY payment system integration configuration', {'okpayCallbackURL': this.paymentMethod.processor.okpayCallbackURL})|raw }}</p>
+
+<table cellspacing="1" cellpadding="5" class="settings-table">
+	<tr>
+		<td class="setting-name">
+			<label for="settings_result_url">{{ t('Callback URL') }}:</label>
+		</td>
+		<td>
+			{{ this.paymentMethod.processor.okpayCallbackURL }}
+		</td>
+	</tr>
+	<tr>
+		<td class="setting-name">
+			<label for="settings_success_url">{{ t('Success URL') }}:</label>
+		</td>
+		<td>
+			{{ this.paymentMethod.processor.okpaySuccessURL }}
+		</td>
+	</tr>
+	<tr>
+		<td class="setting-name">
+			<label for="settings_fail_url">{{ t('Fail URL') }}:</label>
+		</td>
+		<td>
+			{{ this.paymentMethod.processor.okpayFailURL }}
+		</td>
+	</tr>
+	<tr>
+		<td class="setting-name">
+			<label for="settings_response_type">{{ t('Response type') }}:</label>
+		</td>
+		<td>
+			POST
+		</td>
+	</tr>
+	<tr>
+		<td class="setting-name">
+			<label for="settings_walletid">{{ t('Merchant Wallet ID') }}:</label>
+		</td>
+		<td>
+			<input type="text" id="settings_walletid" name="settings[walletid]" value="{{ this.paymentMethod.getSetting('walletid') }}" class="field-required" />
+		</td>
+	</tr>
+	<tr>
+		<td class="setting-name">
+			<label for="settings_language">{{ t('Language') }}:</label>
+		</td>
+		<td>
+			<select id="settings_language" name="settings[language]" class="field-required" />
+				<option value="en">{{ t('English') }}</option>
+				<option value="ru">{{ t('Russian') }}</option>
+				<option value="es">{{ t('Spanish') }}</option>
+				<option value="de">{{ t('German') }}</option>
+				<option value="fr">{{ t('French') }}</option>
+				<option value="it">{{ t('Italian') }}</option>
+				<option value="pt">{{ t('Portuguese') }}</option>
+				<option value="cn">{{ t('Chinese') }}</option>
+				<option value="th">{{ t('Thai') }}</option>
+				<option value="vn">{{ t('Vietnamese') }}</option>
+				<option value="ms">{{ t('Malay') }}</option>
+				<option value="et">{{ t('Estonian') }}</option>
+				<option value="hu">{{ t('Hungarian') }}</option>
+				<option value="hi">{{ t('Hindi') }}</option>
+				<option value="bn">{{ t('Bengali') }}</option>
+				<option value="pl">{{ t('Polish') }}</option>
+				<option value="uk">{{ t('Ukrainian') }}</option>
+				<option value="kk">{{ t('Kazakh') }}</option>
+				<option value="id">{{ t('Indonesian') }}</option>
+				<option value="fa">{{ t('Farsi') }}</option>
+				<option value="ar">{{ t('Arabic') }}</option>
+			</select>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+//<![CDATA[
+	jQuery("#settings_language").val("{{ this.paymentMethod.getSetting('language') }}");
+//]]>
+</script>
